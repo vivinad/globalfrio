@@ -1,0 +1,84 @@
+%%{init: {
+  'theme': 'default',
+  'themeVariables': {
+    'fontFamily': 'Segoe UI, Arial, sans-serif',
+    'fontSize': '13px',
+    'primaryColor': '#EFF6FF',
+    'primaryTextColor': '#0F172A',
+    'primaryBorderColor': '#3B82F6',
+    'lineColor': '#2563EB',
+    'secondaryColor': '#ECFDF5',
+    'tertiaryColor': '#FEF3C7',
+    'mainBkg': '#FFFFFF',
+    'nodeBorder': '#3B82F6',
+    'clusterBkg': '#F8FAFC',
+    'clusterBorder': '#94A3B8',
+    'titleColor': '#1E293B',
+    'edgeLabelBackground': '#FFFFFF'
+  },
+  'flowchart': {
+    'nodeSpacing': 65,
+    'rankSpacing': 85,
+    'curve': 'basis',
+    'padding': 20,
+    'useMaxWidth': true,
+    'defaultRenderer': 'dagre'
+  }
+}}%%
+flowchart TD
+    subgraph Frontend_Angular ["Frontend: Angular SPA (TypeScript)"]
+        direction TB
+        UI["Componentes Visuales<br/>(Bootstrap / Material / SASS)"]
+        Directives["Directivas & Property Binding"]
+        Forms["Formularios<br/>(CRUD & Validaciones)"]
+        Services["Angular Data Services<br/>(HttpClient & RxJS)"]
+        Guards["AuthGuards & JWT Interceptor"]
+        
+        UI --> Directives
+        Directives --> Forms
+        Forms --> Services
+        Guards --> Services
+    end
+
+    subgraph Red_Comunicacion ["Canal de Comunicación HTTP / REST"]
+        direction LR
+        REST_REQ["Peticiones HTTP<br/>(JSON / CORS / HTTPS)"]
+        REST_RES["Respuestas HTTP<br/>(ResponseEntity & Status Codes)"]
+        REST_REQ ~~~ REST_RES
+    end
+
+    subgraph Backend_SpringBoot ["Backend: Java + Spring Boot (N-Capas)"]
+        direction TB
+        Security["Spring Security + Filtro JWT"]
+        Controller["Controladores REST (@RestController)"]
+        ServiceLayer["Capa de Negocio (@Service + @Transactional)"]
+        RepoLayer["Capa de Datos (@Repository / JpaRepository)"]
+        EntityLayer["Entidades JPA (@Entity + Validaciones)"]
+        
+        Security --> Controller
+        Controller --> ServiceLayer
+        ServiceLayer --> RepoLayer
+        RepoLayer --> EntityLayer
+    end
+
+    subgraph Base_de_Datos ["Persistencia Relacional"]
+        SGBD[("SGBD Relacional<br/>(MySQL / SQL Server / H2)")]
+    end
+
+    %% Flujos de Integración Externa con Enlaces Despejados (Ida por Izquierda, Retorno por Derecha)
+    Services -->|HTTP GET/POST/PUT/DELETE| REST_REQ
+    REST_REQ --> Security
+    EntityLayer -->|JPQL / JDBC / Named Queries| SGBD
+    Controller -->|JSON Response| REST_RES
+    REST_RES --> Services
+
+    %% Clases Semánticas de Estilo y Alto Contraste
+    classDef frontend fill:#EFF6FF,stroke:#2563EB,stroke-width:2px,color:#1E3A8A;
+    classDef network fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#92400E;
+    classDef backend fill:#ECFDF5,stroke:#059669,stroke-width:2px,color:#065F46;
+    classDef database fill:#F3E8FF,stroke:#7C3AED,stroke-width:2px,color:#5B21B6;
+
+    class UI,Directives,Forms,Services,Guards frontend;
+    class REST_REQ,REST_RES network;
+    class Security,Controller,ServiceLayer,RepoLayer,EntityLayer backend;
+    class SGBD database;
