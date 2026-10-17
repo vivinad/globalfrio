@@ -1,0 +1,69 @@
+%%{init: {
+  'theme': 'default',
+  'themeVariables': {
+    'fontFamily': 'Segoe UI, Arial, sans-serif',
+    'fontSize': '13px',
+    'primaryColor': '#EFF6FF',
+    'primaryTextColor': '#1E293B',
+    'primaryBorderColor': '#3B82F6',
+    'lineColor': '#334155',
+    'secondaryColor': '#FEF3C7',
+    'tertiaryColor': '#F1F5F9',
+    'noteBkgColor': '#FEF3C7',
+    'noteTextColor': '#92400E',
+    'noteBorderColor': '#F59E0B',
+    'actorBkg': '#EFF6FF',
+    'actorTextColor': '#1E3A8A',
+    'actorBorder': '#2563EB',
+    'actorLineColor': '#94A3B8',
+    'signalColor': '#1E293B',
+    'signalTextColor': '#0F172A',
+    'labelBoxBkgColor': '#F8FAFC',
+    'labelBoxBorderColor': '#CBD5E1',
+    'labelTextColor': '#0F172A',
+    'loopTextColor': '#0F172A',
+    'activationBorderColor': '#2563EB',
+    'activationBkgColor': '#DBEAFE',
+    'sequenceNumberColor': '#FFFFFF'
+  },
+  'sequence': {
+    'diagramMarginX': 35,
+    'diagramMarginY': 25,
+    'actorMargin': 65,
+    'width': 165,
+    'height': 55,
+    'boxMargin': 10,
+    'boxTextMargin': 5,
+    'noteMargin': 15,
+    'messageMargin': 42,
+    'messageFontSize': 13,
+    'noteFontSize': 13,
+    'actorFontSize': 13,
+    'mirrorActors': false,
+    'useMaxWidth': true
+  }
+}}%%
+sequenceDiagram
+    autonumber
+    actor U as Usuario (Navegador)
+    participant A as Angular Frontend
+    participant I as JWT Interceptor
+    participant S as Spring Security / Filtro JWT
+    participant C as Auth Controller
+    participant BD as SGBD Relacional
+
+    U->>A: Ingresa credenciales (Login)
+    A->>C: POST /api/auth/login {username, password}
+    C->>BD: Valida usuario y contraseña cifrada
+    BD-->>C: Datos de usuario y roles confirmados
+    C-->>A: Retorna Token JWT (Bearer Token)
+    A->>A: Almacena JWT en almacenamiento seguro del cliente
+    
+    Note over U,A: Petición a Endpoint Protegido (CRUD)
+    U->>A: Solicita operación de negocio
+    A->>I: Adjunta header: Authorization: Bearer <token>
+    I->>S: Petición HTTP con Token + Pre-flight CORS (OPTIONS)
+    S->>S: Valida firma de Token JWT y permisos
+    S->>C: Permite ejecución del controlador
+    C-->>A: Respuesta HTTP 200 OK con datos JSON
+    A-->>U: Renderiza datos en la interfaz de usuario
