@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" modified="2026-10-17T22:30:00.000Z" agent="GlobalFrio Native Diagram Engine v1.0" version="24.0.0" type="device">
+  <diagram id="diag_04" name="04-Maquina-Estados-Cotizacion-Orden">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1250" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="header_banner" value="&lt;font style='font-size: 20px; font-weight: bold; color: #a9bed2;'&gt;GLOBAL FRÍO SAC — SIST1402A (UPN 2026-2)&lt;/font&gt;&lt;br/&gt;&lt;font style='font-size: 16px; font-weight: bold; color: #ffffff;'&gt;DIAGRAMA 04: MÁQUINA DE ESTADOS FINITA (FSM) DE COTIZACIONES Y ÓRDENES DE SERVICIO&lt;/font&gt;&lt;br/&gt;&lt;font style='font-size: 11px; color: #5980a6;'&gt;Ciclo de Vida de Negocio: Solicitud Web -&gt; Cotización Formal -&gt; Transición Atómica @Transactional -&gt; Orden de Servicio Ejecutada&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;align=left;spacingLeft=25;fontFamily=Barlow, Arial, sans-serif;" parent="1" vertex="1">
+          <mxGeometry x="20" y="20" width="1760" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="fsm_start" value="●&lt;br/&gt;Inicio" style="ellipse;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="50" y="240" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="st_sol_pend" value="&lt;b&gt;SOLICITUD_PENDIENTE&lt;/b&gt;&lt;br/&gt;&lt;i&gt;(solicitudes_cotizacion)&lt;/i&gt;&lt;br/&gt;Generada por cliente web&lt;br/&gt;UUID emitido para tracking&lt;br/&gt;Fotos y planos adjuntos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2c4560;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;align=center;" parent="1" vertex="1">
+          <mxGeometry x="160" y="220" width="230" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="st_eval_tec" value="&lt;b&gt;EN_EVALUACION_TECNICA&lt;/b&gt;&lt;br/&gt;&lt;i&gt;(solicitudes_cotizacion)&lt;/i&gt;&lt;br/&gt;Asesor revisa metrajes,&lt;br/&gt;carga térmica y fotos de obra" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2c4560;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;align=center;" parent="1" vertex="1">
+          <mxGeometry x="460" y="220" width="230" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="st_cot_draft" value="&lt;b&gt;COTIZACION_BORRADOR&lt;/b&gt;&lt;br/&gt;&lt;i&gt;(cotizaciones)&lt;/i&gt;&lt;br/&gt;Asesor ajusta catálogo,&lt;br/&gt;tubería extra y flete distrital" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2c4560;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;align=center;" parent="1" vertex="1">
+          <mxGeometry x="760" y="220" width="230" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="st_cot_emit" value="&lt;b&gt;COTIZACION_EMITIDA&lt;/b&gt;&lt;br/&gt;&lt;i&gt;(cotizaciones)&lt;/i&gt;&lt;br/&gt;Código oficial COT-2026-XXXX&lt;br/&gt;&lt;b&gt;Snapshots inmutables congelados&lt;/b&gt;&lt;br/&gt;Validez comercial: 15 días" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f5fa9;strokeColor=#a9bed2;strokeWidth=2;fontColor=#ffffff;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1060" y="220" width="250" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="st_cot_rech" value="&lt;b&gt;COTIZACION_RECHAZADA&lt;/b&gt;&lt;br/&gt;Cliente desiste o rechaza proforma&lt;br/&gt;[Estado Terminal]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#381b1b;strokeColor=#ef4444;strokeWidth=2;fontColor=#fca5a5;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1060" y="90" width="250" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="st_cot_venc" value="&lt;b&gt;COTIZACION_VENCIDA&lt;/b&gt;&lt;br/&gt;Supera 15 días sin confirmación&lt;br/&gt;[Estado Terminal]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#381b1b;strokeColor=#ef4444;strokeWidth=2;fontColor=#fca5a5;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1060" y="370" width="250" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="st_cot_acep" value="&lt;b&gt;COTIZACION_ACEPTADA&lt;/b&gt;&lt;br/&gt;&lt;i&gt;(cotizaciones)&lt;/i&gt;&lt;br/&gt;Cliente aprueba proforma y&lt;br/&gt;abona anticipo acordado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#143823;strokeColor=#10b981;strokeWidth=2;fontColor=#6ee7b7;fontSize=12;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1380" y="220" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="tx_gate" value="&lt;b&gt;FRONTERA TRANSACCIONAL ATÓMICA&lt;/b&gt;&lt;br/&gt;@Transactional(rollbackFor = Exception.class)&lt;br/&gt;OrdenServicioFactory.crearDesdeCotizacion(cotizacionId)&lt;br/&gt;&lt;i&gt;Si ocurre error en snapshot o inserción, se revierte todo (ACID)&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e3328;strokeColor=#10b981;strokeWidth=2;strokeDashArray=4 4;fontColor=#a7f3d0;fontSize=11;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1300" y="380" width="400" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="st_os_prog" value="&lt;b&gt;OS_PROGRAMADA&lt;/b&gt;&lt;br/&gt;&lt;i&gt;(ordenes_servicio)&lt;/i&gt;&lt;br/&gt;Código oficial OS-2026-XXXX&lt;br/&gt;Técnico: Edgar Sabalu&lt;br/&gt;Fecha y cuadrilla en agenda" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f5fa9;strokeColor=#a9bed2;strokeWidth=2;fontColor=#ffffff;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1380" y="540" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="st_os_proc" value="&lt;b&gt;OS_EN_EJECUCION&lt;/b&gt;&lt;br/&gt;&lt;i&gt;(ordenes_servicio)&lt;/i&gt;&lt;br/&gt;Cuadrilla técnica en obra:&lt;br/&gt;Montaje, tuberías, vacío 500μm,&lt;br/&gt;presurización con nitrógeno" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2c4560;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1060" y="540" width="250" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="st_os_canc" value="&lt;b&gt;OS_CANCELADA&lt;/b&gt;&lt;br/&gt;Fuerza mayor o rescisión&lt;br/&gt;[Estado Terminal]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#381b1b;strokeColor=#ef4444;strokeWidth=2;fontColor=#fca5a5;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1060" y="690" width="250" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="st_os_comp" value="&lt;b&gt;OS_COMPLETADA&lt;/b&gt;&lt;br/&gt;&lt;i&gt;(ordenes_servicio)&lt;/i&gt;&lt;br/&gt;Prueba de salto térmico ΔT ≥ 12°C&lt;br/&gt;Firma de Acta de Conformidad&lt;br/&gt;[Estado Final Exitoso]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#143823;strokeColor=#10b981;strokeWidth=2;fontColor=#6ee7b7;fontSize=12;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="690" y="540" width="260" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="fsm_end" value="◎&lt;br/&gt;Fin" style="ellipse;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#10b981;strokeWidth=3;fontColor=#ffffff;fontSize=11;" parent="1" vertex="1">
+          <mxGeometry x="540" y="560" width="50" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="t1" value="POST /api/cotizaciones/publica" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="fsm_start" target="st_sol_pend" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t2" value="Asesor toma solicitud (ROLE_ASESOR)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="st_sol_pend" target="st_eval_tec" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t3" value="Cálculo con Decorator" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="st_eval_tec" target="st_cot_draft" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t4" value="Asesor aprueba emisión proforma" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="st_cot_draft" target="st_cot_emit" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t5" value="Cliente rechaza proforma" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="st_cot_emit" target="st_cot_rech" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t6" value="Expiración reloj 15 días" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="st_cot_emit" target="st_cot_venc" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t7" value="Confirmación cliente + abono" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="st_cot_emit" target="st_cot_acep" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t8" value="Dispara creación de Orden" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="st_cot_acep" target="tx_gate" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t9" value="Commit transaccional exitoso" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="tx_gate" target="st_os_prog" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t10" value="Inicio de trabajos en terreno" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="st_os_prog" target="st_os_proc" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t11" value="Cancelación técnica" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="st_os_prog" target="st_os_canc" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1380" y="620"/>
+              <mxPoint x="1340" y="620"/>
+              <mxPoint x="1340" y="725"/>
+              <mxPoint x="1310" y="725"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t12" value="Imposibilidad técnica en obra" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="st_os_proc" target="st_os_canc" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t13" value="Pruebas OK + Firma cliente" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="st_os_proc" target="st_os_comp" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="t14" value="Cierre satisfactorio OS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="st_os_comp" target="fsm_end" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

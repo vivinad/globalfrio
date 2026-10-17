@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" modified="2026-10-17T22:30:00.000Z" agent="GlobalFrio Native Diagram Engine v1.0" version="24.0.0" type="device">
+  <diagram id="diag_07" name="07-Flujo-Trabajo-Equipo-QA-Vivian">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="header_banner" value="&lt;font style='font-size: 20px; font-weight: bold; color: #a9bed2;'&gt;GLOBAL FRÍO SAC — SIST1402A (UPN 2026-2)&lt;/font&gt;&lt;br/&gt;&lt;font style='font-size: 16px; font-weight: bold; color: #ffffff;'&gt;DIAGRAMA 07: FLUJO DE TRABAJO COLABORATIVO EN 4 CARRILES (SWIMLANES), QA BUG-FIXING Y HITOS UPN&lt;/font&gt;&lt;br/&gt;&lt;font style='font-size: 11px; color: #5980a6;'&gt;Dinámica de Equipo: Orlando (Backend/BD) → Compañero QA (Bug-Fixer Activo) → Vivian (PO/Frontend) → Hitos Académicos (T1, T2, T3, Final)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;align=left;spacingLeft=25;fontFamily=Barlow, Arial, sans-serif;" parent="1" vertex="1">
+          <mxGeometry x="20" y="20" width="1760" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_orlando" value="CARRIL 1: ORLANDO DORIVAL&lt;br/&gt;Arquitecto de Sistemas, Líder Backend &amp; Base de Datos" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=12;fontStyle=1;startSize=36;align=center;" parent="1" vertex="1">
+          <mxGeometry x="30" y="100" width="1790" height="250" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_req" value="&lt;b&gt;1. Requerimientos &amp; Arquitectura&lt;/b&gt;&lt;br/&gt;• Análisis del Sílabo SIST1402A&lt;br/&gt;• Topología N-Capas Monorepo&lt;br/&gt;• Migración Vanilla a Angular Base" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="80" y="130" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_db" value="&lt;b&gt;2. Modelado de Persistencia&lt;/b&gt;&lt;br/&gt;• DDL 11 Tablas Normalizadas (3FN)&lt;br/&gt;• Columnas snapshot_* inmutables&lt;br/&gt;• Script data-seed-globalfrio.sql" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="360" y="130" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_be" value="&lt;b&gt;3. Implementación Backend Spring Boot&lt;/b&gt;&lt;br/&gt;• Controladores REST &amp; Thymeleaf SSR&lt;br/&gt;• Capa @Service con @Transactional&lt;br/&gt;• Patrones Decorator, Factory, Singleton&lt;br/&gt;• Seguridad Spring Security 6 &amp; JWT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="640" y="130" width="270" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_build" value="&lt;b&gt;4. Verificación Local Orlando&lt;/b&gt;&lt;br/&gt;./mvnw clean compile&lt;br/&gt;Build inicial sin errores" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2c4560;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=10;align=center;" parent="1" vertex="1">
+          <mxGeometry x="950" y="140" width="190" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_commit" value="&lt;b&gt;5. Commit Convencional&lt;/b&gt;&lt;br/&gt;feat(backend): [RF-SEMXX-YY]...&lt;br/&gt;Entrega incremento a QA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f5fa9;strokeColor=#a9bed2;strokeWidth=1.5;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1180" y="140" width="210" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_qa" value="CARRIL 2: COMPAÑERO DE QA&lt;br/&gt;QA Engineer &amp; BUG-FIXER ACTIVO (Repara Código)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=12;fontStyle=1;startSize=36;align=center;" parent="1" vertex="1">
+          <mxGeometry x="30" y="370" width="1790" height="280" as="geometry"/>
+        </mxCell>
+        <mxCell id="qa_deploy" value="&lt;b&gt;6. Recepción &amp; Despliegue Local&lt;/b&gt;&lt;br/&gt;Clona rama orlando-docs-backend&lt;br/&gt;Levanta H2 / MySQL y Frontend 4200" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="80" y="400" width="240" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="qa_tests" value="&lt;b&gt;7. Ejecución Batería de Pruebas&lt;/b&gt;&lt;br/&gt;• Unitarias &amp; MockMvc (./mvnw test)&lt;br/&gt;• Rollback Atómico @Transactional&lt;br/&gt;• Pruebas API Postman &amp; Swagger UI&lt;br/&gt;• Matriz Responsive RNF03 (360px+)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="360" y="400" width="250" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="qa_dec" value="¿Pruebas&lt;br/&gt;100% OK?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#1f5fa9;strokeColor=#a9bed2;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="660" y="410" width="100" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="qa_diag" value="&lt;b&gt;8. DIAGNÓSTICO EN CÓDIGO FUENTE&lt;/b&gt;&lt;br/&gt;Compañero de QA no solo reporta:&lt;br/&gt;Revisa trazas de error en consola/logs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#381b1b;strokeColor=#ef4444;strokeWidth=2;fontColor=#fca5a5;fontSize=10;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="810" y="480" width="260" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="qa_fix" value="&lt;b&gt;9. REPARACIÓN DIRECTA EN FUENTES&lt;/b&gt;&lt;br/&gt;&lt;b&gt;El compañero de QA modifica el código:&lt;/b&gt;&lt;br/&gt;Corrige validaciones, JPQL, DTOs o CSS&lt;br/&gt;Re-ejecuta pruebas hasta lograr 100% verde" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#143823;strokeColor=#10b981;strokeWidth=2;fontColor=#6ee7b7;fontSize=10;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1110" y="480" width="280" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="qa_fix_commit" value="&lt;b&gt;10. Commit de Corrección&lt;/b&gt;&lt;br/&gt;fix(modulo): [RF-SEMXX-YY] arreglo bug&lt;br/&gt;Aprobación de Quality Gate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f5fa9;strokeColor=#a9bed2;strokeWidth=1.5;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1430" y="480" width="220" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="qa_gate_ok" value="&lt;b&gt;11. Quality Gate Aprobado&lt;/b&gt;&lt;br/&gt;Versión estabilizada y testeada al 100%&lt;br/&gt;Lista para validación comercial" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#143823;strokeColor=#10b981;strokeWidth=2;fontColor=#6ee7b7;fontSize=10;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="810" y="400" width="260" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_vivian" value="CARRIL 3: VIVIAN&lt;br/&gt;Product Owner, Representante Global Frío &amp; Frontend Owner" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=12;fontStyle=1;startSize=36;align=center;" parent="1" vertex="1">
+          <mxGeometry x="30" y="670" width="1790" height="260" as="geometry"/>
+        </mxCell>
+        <mxCell id="v_recibe" value="&lt;b&gt;12. Recepción de Build Estable&lt;/b&gt;&lt;br/&gt;Vivian prueba interfaz en Angular&lt;br/&gt;Evalúa usabilidad y flujo comercial" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="80" y="700" width="240" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="v_docs" value="&lt;b&gt;13. Validación con 5 Docs Reales&lt;/b&gt;&lt;br/&gt;1. Proforma Membretada PDF&lt;br/&gt;2. Tarifario Zonal Lima BTU&lt;br/&gt;3. Orden de Servicio Firmada&lt;br/&gt;4. Catálogo Gree / Samsung&lt;br/&gt;5. Ficha Visita con Planos" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="360" y="700" width="260" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="v_ui_fix" value="&lt;b&gt;14. DESARROLLO &amp; AJUSTE VISUAL VIVIAN&lt;/b&gt;&lt;br/&gt;&lt;b&gt;Vivian programa directamente en Angular:&lt;/b&gt;&lt;br/&gt;Ajusta tokens SASS (#5980a6, #1f5fa9, Barlow)&lt;br/&gt;Maqueta pantallas y vistas pendientes en SCSS&lt;br/&gt;Commit: feat(ui): [RF-SEMXX-YY] ajuste Vivian" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f5fa9;strokeColor=#a9bed2;strokeWidth=1.5;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="670" y="700" width="320" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="v_approve" value="&lt;b&gt;15. Aprobación Comercial PO&lt;/b&gt;&lt;br/&gt;Incremento comercialmente validado&lt;br/&gt;Fidelidad 100% con visión Global Frío" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#143823;strokeColor=#10b981;strokeWidth=2;fontColor=#6ee7b7;fontSize=10;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1040" y="720" width="260" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_upn" value="CARRIL 4: HITOS ACADÉMICOS UPN (SIST1402A — ING. CARLOS ALBERTO PONTE RAMÍREZ)" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=12;fontStyle=1;startSize=36;align=center;" parent="1" vertex="1">
+          <mxGeometry x="30" y="950" width="1790" height="280" as="geometry"/>
+        </mxCell>
+        <mxCell id="hito_t1" value="&lt;b&gt;HITO T1 (Semana 06 — 10%)&lt;/b&gt;&lt;br/&gt;• Consolidación Backend REST&lt;br/&gt;• JPA EntityManager S03 / JpaRepository S04&lt;br/&gt;• Spring Security JWT + CORS S05&lt;br/&gt;• Batería cURL / Postman / Swagger&lt;br/&gt;• Alineación ODS 09" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2a2415;strokeColor=#f59e0b;strokeWidth=2;fontColor=#fcd34d;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="80" y="1000" width="280" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="hito_t2" value="&lt;b&gt;HITO T2 (Semana 10 — 20%)&lt;/b&gt;&lt;br/&gt;• Defensa Solución Integrada&lt;br/&gt;• Frontend Angular SPA (4200)&lt;br/&gt;• Modal Cotizador 3 Pasos&lt;br/&gt;• CRUD Completo y Persistente&lt;br/&gt;• Manejo de Errores RxJS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2a2415;strokeColor=#f59e0b;strokeWidth=2;fontColor=#fcd34d;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="420" y="1000" width="280" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="hito_t3" value="&lt;b&gt;HITO T3 (Semana 13 — 30%)&lt;/b&gt;&lt;br/&gt;• Consolidación Transaccional&lt;br/&gt;• Demostración de Rollback en vivo&lt;br/&gt;• @Transactional(rollbackFor = Exception)&lt;br/&gt;• Conversión Cotización a OS Atómica&lt;br/&gt;• Contratos SOA Formalizados" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2a2415;strokeColor=#f59e0b;strokeWidth=2;fontColor=#fcd34d;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="760" y="1000" width="280" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="hito_final" value="&lt;b&gt;EVALUACIÓN FINAL (Semana 16 — 40%)&lt;/b&gt;&lt;br/&gt;• Sustentación Integral Solución Distribuida&lt;br/&gt;• Despliegue Tomcat / HTTPS SSL 8443&lt;br/&gt;• Cero Mocks / 100% Determinista&lt;br/&gt;• &lt;b&gt;NOTA OFICIAL: NO HAY SUSTITUTORIO&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2a2415;strokeColor=#f59e0b;strokeWidth=2;fontColor=#fcd34d;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1100" y="1000" width="320" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="f_o1" value="Modelo de datos" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="o_req" target="o_db" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f_o2" value="Implementación Java" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="o_db" target="o_be" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f_o3" value="Compilación" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="o_be" target="o_build" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f_o4" value="Push commit" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="o_build" target="o_commit" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f_o_qa" value="Handoff a QA" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="o_commit" target="qa_deploy" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1280" y="200"/>
+              <mxPoint x="1280" y="280"/>
+              <mxPoint x="70" y="280"/>
+              <mxPoint x="70" y="435"/>
+              <mxPoint x="80" y="435"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f_q1" value="Ejecuta suite" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="qa_deploy" target="qa_tests" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f_q2" value="Evaluación" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="qa_tests" target="qa_dec" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f_q_ok" value="SÍ (100% Verde)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="qa_dec" target="qa_gate_ok" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f_q_fail" value="NO (Hay fallo)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="qa_dec" target="qa_diag" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="480"/>
+              <mxPoint x="710" y="510"/>
+              <mxPoint x="810" y="510"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f_q_fix" value="QA repara código directamente" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="qa_diag" target="qa_fix" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f_q_retest" value="Re-test 100% OK" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="qa_fix" target="qa_fix_commit" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f_q_loop" value="Aprueba Quality Gate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="qa_fix_commit" target="qa_gate_ok" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1540" y="480"/>
+              <mxPoint x="1540" y="430"/>
+              <mxPoint x="1070" y="430"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f_qa_v" value="Entrega versión estabilizada a Vivian" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="qa_gate_ok" target="v_recibe" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940" y="465"/>
+              <mxPoint x="940" y="660"/>
+              <mxPoint x="70" y="660"/>
+              <mxPoint x="70" y="735"/>
+              <mxPoint x="80" y="735"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f_v1" value="Coteja con documentos reales" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="v_recibe" target="v_docs" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f_v2" value="Vivian programa ajustes CSS/Angular" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="v_docs" target="v_ui_fix" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="f_v3" value="Validación final de Vivian" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="v_ui_fix" target="v_approve" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_sync_t1" value="Entregables Backend T1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="o_commit" target="hito_t1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1250" y="140"/>
+              <mxPoint x="1250" y="930"/>
+              <mxPoint x="220" y="930"/>
+              <mxPoint x="220" y="1000"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h_sync_t2" value="Entregables Integrados T2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="v_approve" target="hito_t2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1170" y="790"/>
+              <mxPoint x="1170" y="930"/>
+              <mxPoint x="560" y="930"/>
+              <mxPoint x="560" y="1000"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h_sync_t3" value="Verificación Rollback T3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="qa_gate_ok" target="hito_t3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940" y="465"/>
+              <mxPoint x="940" y="930"/>
+              <mxPoint x="900" y="930"/>
+              <mxPoint x="900" y="1000"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h_sync_final" value="Solución Completa Final" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="v_approve" target="hito_final" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1200" y="790"/>
+              <mxPoint x="1200" y="930"/>
+              <mxPoint x="1260" y="930"/>
+              <mxPoint x="1260" y="1000"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

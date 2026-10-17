@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" modified="2026-10-17T22:30:00.000Z" agent="GlobalFrio Native Diagram Engine v1.0" version="24.0.0" type="device">
+  <diagram id="diag_03" name="03-Flujo-Cotizacion-Decorator">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1250" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="header_banner" value="&lt;font style='font-size: 20px; font-weight: bold; color: #a9bed2;'&gt;GLOBAL FRÍO SAC — SIST1402A (UPN 2026-2)&lt;/font&gt;&lt;br/&gt;&lt;font style='font-size: 16px; font-weight: bold; color: #ffffff;'&gt;DIAGRAMA 03: PIPELINE DE COTIZACIÓN Y PATRÓN GOF DECORATOR (BIGDECIMAL)&lt;/font&gt;&lt;br/&gt;&lt;font style='font-size: 11px; color: #5980a6;'&gt;Algoritmo Termodinámico de Carga Térmica BTU, Arquitectura de Clases Decorator y Pipeline Numérico Financiero en Soles (S/)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;align=left;spacingLeft=25;fontFamily=Barlow, Arial, sans-serif;" parent="1" vertex="1">
+          <mxGeometry x="20" y="20" width="1760" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_btu" value="PARTE A: ALGORITMO TERMODINÁMICO DE CARGA TÉRMICA BTU (LIMA RESIDENCIAL / COMERCIAL)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=13;fontStyle=1;startSize=30;align=center;" parent="1" vertex="1">
+          <mxGeometry x="30" y="100" width="520" height="1100" as="geometry"/>
+        </mxCell>
+        <mxCell id="btu_in" value="&lt;b&gt;Parámetros de Entrada del Recinto:&lt;/b&gt;&lt;br/&gt;• Área en metros cuadrados (m²): e.g. &lt;b&gt;25.0 m²&lt;/b&gt;&lt;br/&gt;• Ocupación de personas: e.g. &lt;b&gt;3 personas&lt;/b&gt;&lt;br/&gt;• Equipos electrónicos (PCs, servidores): e.g. &lt;b&gt;2 equipos&lt;/b&gt;&lt;br/&gt;• Incidencia de Radiación Solar: &lt;b&gt;Media (+10%)&lt;/b&gt;&lt;br/&gt;• Tipo de espacio: Comercial / Oficina" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=10;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="50" y="145" width="480" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="btu_form" value="&lt;b&gt;Reglas de Cálculo y Factores Termodinámicos:&lt;/b&gt;&lt;br/&gt;1. Carga Base Recinto = Área (m²) × 600 BTU/m²&lt;br/&gt;   → 25 m² × 600 = &lt;b&gt;15 000 BTU&lt;/b&gt;&lt;br/&gt;2. Carga por Personas = (Personas - 1) × 600 BTU&lt;br/&gt;   → (3 - 1) × 600 = &lt;b&gt;1 200 BTU&lt;/b&gt;&lt;br/&gt;3. Carga Equipos = Cantidad Equipos × 400 BTU&lt;br/&gt;   → 2 × 400 = &lt;b&gt;800 BTU&lt;/b&gt;&lt;br/&gt;4. Subtotal Carga Térmica = 15 000 + 1 200 + 800 = &lt;b&gt;17 000 BTU&lt;/b&gt;&lt;br/&gt;5. Ajuste Radiación Solar (Media = +10%):&lt;br/&gt;   → 17 000 BTU × 1.10 = &lt;b&gt;18 700 BTU/hr Requeridos&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e2e3e;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=11;align=center;" parent="1" vertex="1">
+          <mxGeometry x="50" y="275" width="480" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="btu_dec" value="&lt;b&gt;Decisión de Selección en Catálogo Oficial Global Frío:&lt;/b&gt;&lt;br/&gt;• Capacidad Estándar Inferior: 12 000 BTU/hr (Insuficiente: generaría sobreesfuerzo de compresor)&lt;br/&gt;• Capacidad Estándar Óptima: &lt;b&gt;18 000 BTU/hr (1.5 TR)&lt;/b&gt;&lt;br/&gt;• Selección de Equipo: &lt;b&gt;Samsung WindFree Inverter 18K BTU (SAM-DVM-18K)&lt;/b&gt;&lt;br/&gt;• Cumplimiento ODS 09: Eficiencia energética e Inverter ecológico R32" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f5fa9;strokeColor=#a9bed2;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="50" y="475" width="480" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="btu_out" value="&lt;b&gt;Contrato de Salida DTO hacia Decorator:&lt;/b&gt;&lt;br/&gt;• sku: 'SAM-DVM-18K'&lt;br/&gt;• precioBase: S/ 2 980.00 (BigDecimal)&lt;br/&gt;• metrosTuberiaSolicitados: 8.0 metros (Exceso: 5.0m)&lt;br/&gt;• distritoId: 3 (San Miguel - Flete: S/ 40.00)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=10;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="50" y="625" width="480" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_gof" value="PARTE B: ESTRUCTURA DE CLASES GOF DECORATOR (pe.upn.sist1402a.pattern.decorator)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=13;fontStyle=1;startSize=30;align=center;" parent="1" vertex="1">
+          <mxGeometry x="580" y="100" width="600" height="1100" as="geometry"/>
+        </mxCell>
+        <mxCell id="uml_iface" value="&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;br/&gt;&lt;b&gt;PresupuestoCalculator&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;+ calcularSubtotal(): BigDecimal&lt;br/&gt;+ obtenerDescripcionDetallada(): String" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f5fa9;strokeColor=#a9bed2;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="730" y="150" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="uml_comp" value="&lt;b&gt;CostoBaseEquipoCalculator&lt;/b&gt;&lt;br/&gt;&lt;i&gt;(Componente Concreto)&lt;/i&gt;&lt;br/&gt;&lt;br/&gt;- precioBase: BigDecimal&lt;br/&gt;- modeloSku: String&lt;br/&gt;- marca: String&lt;br/&gt;&lt;br/&gt;+ calcularSubtotal(): BigDecimal&lt;br/&gt;+ obtenerDescripcionDetallada(): String" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2c4560;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;align=center;" parent="1" vertex="1">
+          <mxGeometry x="600" y="280" width="240" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="uml_abs_dec" value="&lt;b&gt;abstract class PresupuestoDecorator&lt;/b&gt;&lt;br/&gt;&lt;i&gt;(Decorador Abstracto)&lt;/i&gt;&lt;br/&gt;&lt;br/&gt;# decorador: PresupuestoCalculator&lt;br/&gt;&lt;br/&gt;+ PresupuestoDecorator(decorador)&lt;br/&gt;+ calcularSubtotal(): BigDecimal&lt;br/&gt;+ obtenerDescripcionDetallada(): String" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2c4560;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;align=center;" parent="1" vertex="1">
+          <mxGeometry x="920" y="280" width="240" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="uml_dec1" value="&lt;b&gt;InstalacionEstandarDecorator&lt;/b&gt;&lt;br/&gt;+ COSTO_BASE = S/ 350.00&lt;br/&gt;(Mano de obra + Kit básico 3m)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=10;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="600" y="450" width="260" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="uml_dec2" value="&lt;b&gt;MetrosAdicionalesTuberiaDecorator&lt;/b&gt;&lt;br/&gt;+ TARIFA_METRO = S/ 65.00&lt;br/&gt;+(metros - 3) * 65.00 en BigDecimal" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=10;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="900" y="450" width="260" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="uml_dec3" value="&lt;b&gt;RecargoZonaDistritoDecorator&lt;/b&gt;&lt;br/&gt;+ Consulta distritos_zonas.costo_flete&lt;br/&gt;(Callao S/ 0, San Miguel S/ 40, etc.)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=10;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="600" y="530" width="260" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="uml_dec4" value="&lt;b&gt;DescuentoComercialDecorator&lt;/b&gt;&lt;br/&gt;- porcentajeDescuento: BigDecimal&lt;br/&gt;Aplica descuento promocional %" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=10;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="900" y="530" width="260" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="uml_dec5" value="&lt;b&gt;IGVCalculatorDecorator&lt;/b&gt;&lt;br/&gt;+ TASA_IGV = 0.18 (BigDecimal)&lt;br/&gt;setScale(2, RoundingMode.HALF_UP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=10;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="750" y="610" width="260" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="uml_singleton" value="&lt;b&gt;ParametrosComercialesSingleton&lt;/b&gt;&lt;br/&gt;&lt;i&gt;(Patrón GoF Singleton)&lt;/i&gt;&lt;br/&gt;Mantiene en memoria constantes regulatorias:&lt;br/&gt;• IGV = 0.18 | Límite Metros Base = 3.0m | Tarifa Metro = S/ 65.00" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e2e3e;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=11;align=center;" parent="1" vertex="1">
+          <mxGeometry x="640" y="700" width="480" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane_num" value="PARTE C: PIPELINE NUMÉRICO CONCRETO (EJEMPLO REAL EN SOLES S/)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=13;fontStyle=1;startSize=30;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1210" y="100" width="560" height="1100" as="geometry"/>
+        </mxCell>
+        <mxCell id="pipe_s1" value="&lt;b&gt;PASO 1: Costo Base Equipo Samsung WindFree Inverter 18K&lt;/b&gt;&lt;br/&gt;precioBase = &lt;b&gt;S/ 2 980.00&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f5fa9;strokeColor=#a9bed2;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1240" y="150" width="500" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="pipe_s2" value="&lt;b&gt;PASO 2: Decoración Instalación Estándar Especializada&lt;/b&gt;&lt;br/&gt;+ Instalación mano de obra técnica certificada = &lt;b&gt;S/ 350.00&lt;/b&gt;&lt;br/&gt;Subtotal Acumulado: &lt;b&gt;S/ 3 330.00&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e2e3e;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=11;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1240" y="230" width="500" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="pipe_s3" value="&lt;b&gt;PASO 3: Decoración Metros Adicionales de Tubería de Cobre&lt;/b&gt;&lt;br/&gt;Distancia total entre condensadora y evaporadora: 8 metros&lt;br/&gt;Metros extra: 8 - 3 = 5 metros a S/ 65.00/m = &lt;b&gt;S/ 325.00&lt;/b&gt;&lt;br/&gt;Subtotal Acumulado: &lt;b&gt;S/ 3 655.00&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e2e3e;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=11;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1240" y="320" width="500" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="pipe_s4" value="&lt;b&gt;PASO 4: Decoración Flete Zonal (Transporte &amp; Viáticos)&lt;/b&gt;&lt;br/&gt;Zona: San Miguel (Lima Centro-Oeste) = &lt;b&gt;S/ 40.00&lt;/b&gt;&lt;br/&gt;Subtotal Neto Imponible: &lt;b&gt;S/ 3 695.00&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e2e3e;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=11;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1240" y="425" width="500" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="pipe_s5" value="&lt;b&gt;PASO 5: Decoración Impuesto General a las Ventas (IGV 18%)&lt;/b&gt;&lt;br/&gt;Cálculo: S/ 3 695.00 × 0.18 = &lt;b&gt;S/ 665.10&lt;/b&gt; (HALF_UP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2c4560;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1240" y="520" width="500" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="pipe_total" value="&lt;b&gt;TOTAL FINAL PRESUPUESTADO (MONTO EXACTO EN SOLES):&lt;/b&gt;&lt;br/&gt;&lt;font style='font-size: 18px;'&gt;S/ 4 360.10&lt;/font&gt;&lt;br/&gt;(Congelado inmutablemente en cotizaciones.total y snapshot_*)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2a2415;strokeColor=#f59e0b;strokeWidth=2;fontColor=#fcd34d;fontSize=12;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1240" y="605" width="500" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_btu_1" value="Parámetros a motor térmico" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="btu_in" target="btu_form" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_btu_2" value="18 700 BTU calculados" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="btu_form" target="btu_dec" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_btu_3" value="Selección equipo catálogo" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="btu_dec" target="btu_out" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_btu_pipe" value="Envío DTO al Pipeline Decorator" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="btu_out" target="pipe_s1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="530" y="680"/>
+              <mxPoint x="560" y="680"/>
+              <mxPoint x="560" y="80"/>
+              <mxPoint x="1220" y="80"/>
+              <mxPoint x="1220" y="175"/>
+              <mxPoint x="1240" y="175"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_uml_1" value="implements" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="uml_comp" target="uml_iface" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_uml_2" value="implements" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="uml_abs_dec" target="uml_iface" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_uml_3" value="decorates (has-a)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="uml_abs_dec" target="uml_iface" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1040" y="280"/>
+              <mxPoint x="1040" y="190"/>
+              <mxPoint x="1030" y="190"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_uml_d1" value="extends" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="uml_dec1" target="uml_abs_dec" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_uml_d2" value="extends" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="uml_dec2" target="uml_abs_dec" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_uml_d3" value="extends" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="uml_dec3" target="uml_abs_dec" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_uml_d4" value="extends" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="uml_dec4" target="uml_abs_dec" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_uml_d5" value="extends" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="uml_dec5" target="uml_abs_dec" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="p_1_2" value="+ Instalación básica" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="pipe_s1" target="pipe_s2" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="p_2_3" value="+ 5 metros tubería adicional" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="pipe_s2" target="pipe_s3" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="p_3_4" value="+ Flete zonal" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="pipe_s3" target="pipe_s4" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="p_4_5" value="Subtotal S/ 3 695.00" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="pipe_s4" target="pipe_s5" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="p_5_tot" value="+ IGV S/ 665.10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="pipe_s5" target="pipe_total" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

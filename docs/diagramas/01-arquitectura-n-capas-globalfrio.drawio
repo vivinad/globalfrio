@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" modified="2026-10-17T22:30:00.000Z" agent="GlobalFrio Native Diagram Engine v1.0" version="24.0.0" type="device">
+  <diagram id="diag_01" name="01-Arquitectura-N-Capas">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1250" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="header_banner" value="&lt;font style='font-size: 20px; font-weight: bold; color: #a9bed2;'&gt;GLOBAL FRÍO SAC — SIST1402A (UPN 2026-2)&lt;/font&gt;&lt;br/&gt;&lt;font style='font-size: 16px; font-weight: bold; color: #ffffff;'&gt;DIAGRAMA 01: ARQUITECTURA LÓGICA Y FÍSICA N-CAPAS (SIST1402A)&lt;/font&gt;&lt;br/&gt;&lt;font style='font-size: 11px; color: #5980a6;'&gt;Topología Desacoplada: Angular 18 SPA (4200) ↔ REST HTTP/JSON ↔ Spring Boot 3.3.4 (8080/8443) ↔ SGBD Relacional (H2 / MySQL 8.x)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;align=left;spacingLeft=25;fontFamily=Barlow, Arial, sans-serif;" parent="1" vertex="1">
+          <mxGeometry x="20" y="20" width="1760" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="tier_fe" value="CAPA CLIENTE &amp; FRONTEND SPA (Angular 18 — Puerto 4200)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=13;fontStyle=1;startSize=32;align=center;" parent="1" vertex="1">
+          <mxGeometry x="20" y="100" width="410" height="1100" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe_browser" value="&lt;b&gt;Navegador Web / Dispositivo Cliente&lt;/b&gt;&lt;br/&gt;Desktop &amp; Viewports Móviles (RNF03: 360px a 1920px)&lt;br/&gt;Soporte Chrome, Edge, Safari, Firefox" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#5980a6;strokeWidth=1;fontColor=#a9bed2;fontSize=10;align=center;" parent="1" vertex="1">
+          <mxGeometry x="40" y="145" width="370" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe_ui" value="&lt;b&gt;Componentes Visuales UI (src/app/components/)&lt;/b&gt;&lt;br/&gt;• HeaderComponent: Logo, Menú, Ambiente Toggle&lt;br/&gt;• HeroComponent: Claims comerciales, KPIs (24/7, 6m, 100%)&lt;br/&gt;• ServiciosComponent: 01-Instalación, 02-Mantenimiento...&lt;br/&gt;• TrabajosComponent: Proyectos y galería Duotone&lt;br/&gt;• MantenimientoComponent: Checklist preventivo semestral&lt;br/&gt;• UbicacionComponent: Mapa Ventanilla 07061, Edgar Sabalu&lt;br/&gt;• CotizadorModalComponent: Modal 3 Pasos (BTU, Fotos, Folio)&lt;br/&gt;• LoginComponent: Formulario Reactivo (/login)&lt;br/&gt;• PanelAsesorComponent: /panel/solicitudes, /panel/ordenes&lt;br/&gt;• PanelAdminComponent: /panel/tarifario, /panel/catalogo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="40" y="210" width="370" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe_srv" value="&lt;b&gt;Servicios Angular &amp; Gestión de Estado (RxJS)&lt;/b&gt;&lt;br/&gt;• ConfigService: Datos canónicos comerciales de Global Frío&lt;br/&gt;• AmbienteService: BehaviorSubject para tema claro/oscuro&lt;br/&gt;• CotizacionService: HttpClient REST hacia Spring Boot&lt;br/&gt;• AuthService: Manejo de sesión JWT y decodificación claims" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="40" y="450" width="370" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe_sec" value="&lt;b&gt;Infraestructura de Seguridad Cliente&lt;/b&gt;&lt;br/&gt;• JwtInterceptor: Inyección automática de Bearer Token&lt;br/&gt;• AuthGuard: Protección canActivate para rutas /panel/**&lt;br/&gt;• SessionStorage: Almacenamiento seguro del JWT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2c4560;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=10;align=center;" parent="1" vertex="1">
+          <mxGeometry x="40" y="590" width="370" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="fe_tokens" value="&lt;b&gt;Sistema de Diseño &amp; Design Tokens (SASS)&lt;/b&gt;&lt;br/&gt;• Paleta: #5980a6 (Acero), #1f5fa9 (Azul Marca), #15181a (Dark)&lt;br/&gt;• Tipografía: Barlow Condensed (Títulos) / Barlow (Cuerpo)&lt;br/&gt;• Retícula Blueprint con esquinas técnicas .corner" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="40" y="700" width="370" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="tier_net" value="CANAL DE INTEGRACIÓN HTTP / REST" style="swimlane;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=13;fontStyle=1;startSize=32;align=center;" parent="1" vertex="1">
+          <mxGeometry x="450" y="100" width="260" height="1100" as="geometry"/>
+        </mxCell>
+        <mxCell id="net_box" value="&lt;b&gt;Protocolos &amp; Contratos&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;• RESTful API (JSON RFC 8259)&lt;br/&gt;• Pre-flight OPTIONS (CORS Handshake)&lt;br/&gt;• Canal Seguro HTTPS SSL/TLS (Puerto 8443)&lt;br/&gt;• HTTP Dev: Puerto 8080&lt;br/&gt;&lt;br/&gt;&lt;b&gt;Códigos HTTP Estandarizados&lt;/b&gt;&lt;br/&gt;• 200 OK: Consulta y cálculo exitoso&lt;br/&gt;• 201 Created: Solicitud / Cotización registrada&lt;br/&gt;• 204 No Content: Eliminación lógica completada&lt;br/&gt;• 400 Bad Request: Error validación Bean Validation&lt;br/&gt;• 401 Unauthorized: Token JWT inválido/expirado&lt;br/&gt;• 403 Forbidden: Violación RBAC (Rol no autorizado)&lt;br/&gt;• 404 Not Found: Recurso no encontrado&lt;br/&gt;• 500 Internal Error: Excepción no controlada" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="465" y="145" width="230" height="420" as="geometry"/>
+        </mxCell>
+        <mxCell id="net_jwt_flow" value="&lt;b&gt;Cabecera HTTP de Autorización&lt;/b&gt;&lt;br/&gt;Authorization: Bearer &amp;lt;token_jwt&amp;gt;&lt;br/&gt;Firma HMAC-SHA256 con Secreto 256b" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f5fa9;strokeColor=#a9bed2;strokeWidth=1.5;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="465" y="590" width="230" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="net_cors" value="&lt;b&gt;Control de Políticas CORS&lt;/b&gt;&lt;br/&gt;Permite Origin: http://localhost:4200&lt;br/&gt;Métodos: GET, POST, PUT, DELETE, OPTIONS&lt;br/&gt;Headers: Authorization, Content-Type" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2c4560;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=10;align=center;" parent="1" vertex="1">
+          <mxGeometry x="465" y="700" width="230" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="tier_be" value="CAPA BACKEND SPRING BOOT (Java 17 LTS — Spring Boot 3.3.4)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=13;fontStyle=1;startSize=32;align=center;" parent="1" vertex="1">
+          <mxGeometry x="730" y="100" width="680" height="1100" as="geometry"/>
+        </mxCell>
+        <mxCell id="be_sec" value="&lt;b&gt;Filtros de Seguridad &amp; Autenticación (Spring Security 6)&lt;/b&gt;&lt;br/&gt;• SecurityConfig: Sesión Stateless, CSRF deshabilitado, BCryptPasswordEncoder&lt;br/&gt;• JwtAuthenticationFilter: Extracción Bearer, validación de firma y carga en SecurityContextHolder&lt;br/&gt;• TokenBlacklistService: Servicio de lista negra en memoria para invalidación en Logout" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="750" y="145" width="640" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="be_ctrl" value="&lt;b&gt;Capa de Controladores Web / REST (pe.upn.sist1402a.controller)&lt;/b&gt;&lt;br/&gt;• @RestController AuthController (/api/auth/login, /api/auth/logout)&lt;br/&gt;• @RestController CotizacionController (/api/cotizaciones/publica, /api/panel/cotizaciones/**)&lt;br/&gt;• @RestController OrdenServicioController (/api/panel/ordenes/**)&lt;br/&gt;• @RestController EquipoHvacController (/api/catalogo/equipos)&lt;br/&gt;• @RestController DistritoZonaController (/api/catalogo/distritos)&lt;br/&gt;• @RestController SaludoController (/api/saludo, /api/saludo/detalle)&lt;br/&gt;• @Controller CotizacionReporteController (/reportes/cotizacion/{id} -&gt; Thymeleaf SSR Proforma PDF)&lt;br/&gt;• @RestControllerAdvice GlobalExceptionHandler -&gt; ErrorResponseDto estandarizado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="750" y="255" width="640" height="175" as="geometry"/>
+        </mxCell>
+        <mxCell id="be_srv" value="&lt;b&gt;Capa de Lógica de Negocio &amp; Transaccionalidad (@Service)&lt;/b&gt;&lt;br/&gt;• CotizacionServiceImpl: Cálculo de cotización, transición de estados y congelamiento snapshot&lt;br/&gt;• OrdenServicioServiceImpl: Generación de orden atómica con @Transactional(rollbackFor = Exception.class)&lt;br/&gt;• EquipoHvacServiceImpl: Gestión de catálogo y cálculo dinámico de estadoStock (@Transient)&lt;br/&gt;• UsuarioServiceImpl: UserDetailsService y resolución de roles (ROLE_ADMIN, ROLE_ASESOR)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="750" y="445" width="640" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="be_patterns" value="&lt;b&gt;Motor de Patrones de Diseño GoF (Alineados al Sílabo UPN)&lt;/b&gt;&lt;br/&gt;• Decorator: PresupuestoCalculator (CostoBase -&gt; Instalacion -&gt; TuberiaExtra -&gt; Flete -&gt; IGV con BigDecimal)&lt;br/&gt;• Factory: CotizacionSnapshotFactory (Congelamiento inmutable) y OrdenServicioFactory&lt;br/&gt;• Singleton: ParametrosComercialesSingleton (Tasa IGV 0.18, kit base 3m, costo metro extra S/ 65.00)&lt;br/&gt;• Repository: Abstracción de datos desacoplando controladores de la persistencia física" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2c4560;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=10;align=center;" parent="1" vertex="1">
+          <mxGeometry x="750" y="590" width="640" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="be_repo" value="&lt;b&gt;Capa de Acceso a Datos &amp; Repositorios (@Repository)&lt;/b&gt;&lt;br/&gt;• JpaRepository (Semana 04 en adelante): ProductoRepository, CotizacionRepository (Métodos derivados y JPQL)&lt;br/&gt;• EntityManager Manual (Semana 03): CotizacionManualDao (@PersistenceContext, persist, createQuery)&lt;br/&gt;• Consultas Seguras JPQL Parametrizadas: @Query con @Param(&quot;minimo&quot;), @Param(&quot;maximo&quot;) (Anti-SQLi)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="750" y="715" width="640" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="be_entities" value="&lt;b&gt;Entidades de Dominio JPA (@Entity + Bean Validation)&lt;/b&gt;&lt;br/&gt;Cotizacion | CotizacionDetalle (Snapshots inmutables) | OrdenServicio | Clientes | DistritosZonas |&lt;br/&gt;EquiposHvac (@Transient getEstadoStock()) | ServiciosCatalogo | SolicitudesCotizacion | AdjuntosSolicitud" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f5fa9;strokeColor=#a9bed2;strokeWidth=1.5;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="750" y="835" width="640" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="tier_db" value="PERSISTENCIA RELACIONAL" style="swimlane;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;fontSize=13;fontStyle=1;startSize=32;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1430" y="100" width="350" height="1100" as="geometry"/>
+        </mxCell>
+        <mxCell id="db_h2" value="&lt;b&gt;Perfil de Desarrollo (application-dev.properties)&lt;/b&gt;&lt;br/&gt;• H2 Database en memoria&lt;br/&gt;• JDBC: jdbc:h2:mem:globalfriodb&lt;br/&gt;• Consola web interactiva en /h2-console&lt;br/&gt;• Dialecto Hibernate: H2Dialect&lt;br/&gt;• ddl-auto: update para desarrollo ágil" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="1445" y="145" width="320" height="150" as="geometry"/>
+        </mxCell>
+        <mxCell id="db_mysql" value="&lt;b&gt;Perfil de Producción (application-prod.properties)&lt;/b&gt;&lt;br/&gt;• MySQL Server 8.x en Puerto 3306&lt;br/&gt;• Base de datos: globalfrio_db&lt;br/&gt;• Pool de conexiones: HikariCP (Máx 10)&lt;br/&gt;• Dialecto: MySQLDialect&lt;br/&gt;• ddl-auto: validate (Estricto sin auto-alter)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#3d5c7b;strokeWidth=1;fontColor=#e8eaeb;fontSize=10;align=left;spacingLeft=8;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="1445" y="315" width="320" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="db_seed" value="&lt;b&gt;Script Semilla de Producción&lt;/b&gt;&lt;br/&gt;• data-seed-globalfrio.sql&lt;br/&gt;• 11 tablas normalizadas en 3FN&lt;br/&gt;• Usuarios: admin, asesor, edgar.sabalu (BCrypt)&lt;br/&gt;• Catálogo HVAC: Gree &amp; Samsung Inverter&lt;br/&gt;• Tarifario Zonal: Lima Metropolitana &amp; Callao" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f5fa9;strokeColor=#a9bed2;strokeWidth=1.5;fontColor=#ffffff;fontSize=10;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1445" y="495" width="320" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="Event Binding / Llamadas" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="fe_ui" target="fe_srv" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="Inyección Bearer JWT" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="fe_srv" target="fe_sec" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="HTTP Request (JSON + Bearer)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="fe_sec" target="net_box" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="Pre-flight &amp; Request Filtering" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="net_box" target="be_sec" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="Token Validado / SecurityContext" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="be_sec" target="be_ctrl" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="Invocación de Servicio DTO" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="be_ctrl" target="be_srv" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" value="Pipeline Decorator / Factory" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="be_srv" target="be_patterns" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e8" value="Transacción @Transactional" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="be_srv" target="be_repo" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" value="Mapeo Objeto-Relacional ORM" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="be_repo" target="be_entities" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e10" value="Dev SQL" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="be_repo" target="db_h2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1410" y="765"/>
+              <mxPoint x="1410" y="220"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" value="Prod SQL HikariCP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="be_repo" target="db_mysql" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1410" y="765"/>
+              <mxPoint x="1410" y="395"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" value="HTTP Response (ResponseEntity)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="be_ctrl" target="net_box" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="740" y="340"/>
+              <mxPoint x="700" y="340"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13" value="JSON Response Observable" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#5980a6;strokeWidth=2;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="net_box" target="fe_srv" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="400"/>
+              <mxPoint x="415" y="490"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

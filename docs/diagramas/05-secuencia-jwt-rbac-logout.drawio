@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" modified="2026-10-17T22:30:00.000Z" agent="GlobalFrio Native Diagram Engine v1.0" version="24.0.0" type="device">
+  <diagram id="diag_05" name="05-Secuencia-JWT-RBAC-Logout">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1350" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="header_banner" value="&lt;font style='font-size: 20px; font-weight: bold; color: #a9bed2;'&gt;GLOBAL FRÍO SAC — SIST1402A (UPN 2026-2)&lt;/font&gt;&lt;br/&gt;&lt;font style='font-size: 16px; font-weight: bold; color: #ffffff;'&gt;DIAGRAMA 05: DIAGRAMA DE SECUENCIA UML — AUTENTICACIÓN STATELESS JWT, RBAC Y BLACKLIST LOGOUT&lt;/font&gt;&lt;br/&gt;&lt;font style='font-size: 11px; color: #5980a6;'&gt;Interacciones E2E: Angular SPA ↔ Spring Security Filter Chain ↔ Controllers ↔ TokenBlacklistService ↔ Base de Datos&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#5980a6;strokeWidth=2;fontColor=#ffffff;align=left;spacingLeft=25;fontFamily=Barlow, Arial, sans-serif;" parent="1" vertex="1">
+          <mxGeometry x="20" y="20" width="1760" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="ll_user" value="Usuario / Asesor&#10;(Browser)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="-15" y="110" width="150" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="ll_user_line" value="" style="strokeColor=#3d5c7b;strokeWidth=1;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="60" y="155" width="1" height="1100" as="geometry"/>
+        </mxCell>
+        <mxCell id="ll_spa" value="Angular 18 SPA&#10;(AuthService / Interceptor)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="245" y="110" width="150" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="ll_spa_line" value="" style="strokeColor=#3d5c7b;strokeWidth=1;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="320" y="155" width="1" height="1100" as="geometry"/>
+        </mxCell>
+        <mxCell id="ll_sec" value="Spring Security&#10;&amp; CorsFilter" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="525" y="110" width="150" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="ll_sec_line" value="" style="strokeColor=#3d5c7b;strokeWidth=1;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="600" y="155" width="1" height="1100" as="geometry"/>
+        </mxCell>
+        <mxCell id="ll_filter" value="JwtAuthenticationFilter&#10;(Per-Request)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="805" y="110" width="150" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="ll_filter_line" value="" style="strokeColor=#3d5c7b;strokeWidth=1;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="880" y="155" width="1" height="1100" as="geometry"/>
+        </mxCell>
+        <mxCell id="ll_ctrl" value="AuthController &amp;&#10;Business Controllers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1085" y="110" width="150" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="ll_ctrl_line" value="" style="strokeColor=#3d5c7b;strokeWidth=1;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="155" width="1" height="1100" as="geometry"/>
+        </mxCell>
+        <mxCell id="ll_black" value="TokenBlacklistService&#10;(Caché Memoria)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1365" y="110" width="150" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="ll_black_line" value="" style="strokeColor=#3d5c7b;strokeWidth=1;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="1440" y="155" width="1" height="1100" as="geometry"/>
+        </mxCell>
+        <mxCell id="ll_db" value="Base de Datos&#10;(MySQL / H2)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1c2023;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#ffffff;fontSize=11;fontStyle=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="1625" y="110" width="150" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="ll_db_line" value="" style="strokeColor=#3d5c7b;strokeWidth=1;dashed=1;" parent="1" vertex="1">
+          <mxGeometry x="1700" y="155" width="1" height="1100" as="geometry"/>
+        </mxCell>
+        <mxCell id="zone_login" value="ESCENARIO 1: AUTENTICACIÓN EXITOSA Y EMISIÓN DE TOKEN JWT (POST /api/auth/login)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#5980a6;strokeWidth=1;strokeDashArray=3 3;fontColor=#a9bed2;fontSize=11;fontStyle=1;align=left;spacingLeft=15;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="40" y="180" width="1780" height="280" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_101_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="60" y="210" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_101_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="210" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_101" value="1. Ingresa credenciales (username, password)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_101_s" target="msg_101_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_102_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="235" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_102_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="600" y="235" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_102" value="2. POST /api/auth/login {username, password}" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_102_s" target="msg_102_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_103_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="600" y="260" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_103_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="260" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_103" value="3. Invoca AuthenticationManager.authenticate()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_103_s" target="msg_103_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_104_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="285" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_104_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1700" y="285" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_104" value="4. findByUsername(username) en tabla usuarios" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_104_s" target="msg_104_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_105_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1700" y="310" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_105_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="310" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_105" value="5. Retorna entidad Usuario con password_hash y Rol" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#a9bed2;strokeWidth=1.5;dashed=1;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_105_s" target="msg_105_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_106_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="335" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_106_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="335" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_106" value="6. BCryptPasswordEncoder.matches(raw, hash) -&gt; OK" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_106_s" target="msg_106_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_107_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="360" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_107_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="360" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_107" value="7. JwtTokenProvider.generarToken(roles, 24h)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_107_s" target="msg_107_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_108_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="390" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_108_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="390" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_108" value="8. 200 OK { token: 'Bearer eyJ...', rol: 'ROLE_ASESOR' }" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#a9bed2;strokeWidth=1.5;dashed=1;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_108_s" target="msg_108_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_109_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="415" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_109_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="415" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_109" value="9. sessionStorage.setItem('token', jwt)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_109_s" target="msg_109_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_110_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="440" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_110_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="60" y="440" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_110" value="10. Redirige a /panel/solicitudes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#a9bed2;strokeWidth=1.5;dashed=1;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_110_s" target="msg_110_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="zone_rbac" value="ESCENARIO 2: ACCESO A RECURSO PROTEGIDO CON RBAC (GET /api/panel/cotizaciones)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#5980a6;strokeWidth=1;strokeDashArray=3 3;fontColor=#a9bed2;fontSize=11;fontStyle=1;align=left;spacingLeft=15;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="40" y="480" width="1780" height="380" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_111_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="60" y="510" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_111_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="510" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_111" value="11. Solicita bandeja de cotizaciones" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_111_s" target="msg_111_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_112_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="535" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_112_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="535" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_112" value="12. JwtInterceptor inyecta Header 'Authorization: Bearer eyJ...'" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_112_s" target="msg_112_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_113_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="560" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_113_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="600" y="560" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_113" value="13. Pre-flight OPTIONS /api/panel/cotizaciones" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_113_s" target="msg_113_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_114_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="600" y="585" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_114_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="585" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_114" value="14. 200 OK (Access-Control-Allow-Origin: http://localhost:4200)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#a9bed2;strokeWidth=1.5;dashed=1;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_114_s" target="msg_114_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_115_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="615" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_115_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="880" y="615" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_115" value="15. GET /api/panel/cotizaciones con Bearer Token" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_115_s" target="msg_115_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_116_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="880" y="640" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_116_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1440" y="640" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_116" value="16. isTokenRevoked(token)? Consulta lista negra" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_116_s" target="msg_116_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_117_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1440" y="665" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_117_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="880" y="665" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_117" value="17. Retorna FALSE (Token Activo y No Revocado)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#a9bed2;strokeWidth=1.5;dashed=1;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_117_s" target="msg_117_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_118_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="880" y="690" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_118_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="880" y="690" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_118" value="18. Valida firma HMAC-SHA256 y Expiración -&gt; Válido" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_118_s" target="msg_118_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_119_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="880" y="715" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_119_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="600" y="715" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_119" value="19. Fija Authentication(ROLE_ASESOR) en SecurityContextHolder" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_119_s" target="msg_119_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_120_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="600" y="740" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_120_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="740" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_120" value="20. Evalúa @PreAuthorize(&quot;hasRole('ASESOR')&quot;) -&gt; Aprobado" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_120_s" target="msg_120_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_121_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="765" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_121_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1700" y="765" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_121" value="21. CotizacionRepository.findAll(Pageable)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_121_s" target="msg_121_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_122_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1700" y="790" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_122_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="790" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_122" value="22. Retorna Page&lt;Cotizacion&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#a9bed2;strokeWidth=1.5;dashed=1;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_122_s" target="msg_122_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_123_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="815" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_123_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="815" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_123" value="23. 200 OK { content: [...], totalPages: 5 }" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#a9bed2;strokeWidth=1.5;dashed=1;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_123_s" target="msg_123_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_124_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="840" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_124_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="60" y="840" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_124" value="24. Renderiza tabla de cotizaciones en pantalla" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#a9bed2;strokeWidth=1.5;dashed=1;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_124_s" target="msg_124_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="zone_logout" value="ESCENARIO 3: LOGOUT SEGURO Y PROTECCIÓN ANTE REUSO DE TOKEN (TokenBlacklistService)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#15181a;strokeColor=#5980a6;strokeWidth=1;strokeDashArray=3 3;fontColor=#a9bed2;fontSize=11;fontStyle=1;align=left;spacingLeft=15;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="40" y="880" width="1780" height="380" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_125_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="60" y="910" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_125_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="910" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_125" value="25. Clic en 'Cerrar Sesión'" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_125_s" target="msg_125_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_126_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="935" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_126_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="880" y="935" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_126" value="26. POST /api/auth/logout con Bearer Token" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_126_s" target="msg_126_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_127_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="880" y="960" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_127_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="960" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_127" value="27. AuthController.logout()" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_127_s" target="msg_127_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_128_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="985" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_128_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1440" y="985" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_128" value="28. revocarToken(token, fechaExpiracion)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_128_s" target="msg_128_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_129_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1440" y="1010" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_129_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1440" y="1010" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_129" value="29. Almacena token en Set de Revocados con TTL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_129_s" target="msg_129_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_130_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="1035" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_130_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="1035" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_130" value="30. 200 OK { mensaje: 'Sesión invalidada' }" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#a9bed2;strokeWidth=1.5;dashed=1;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_130_s" target="msg_130_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_131_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="1060" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_131_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="1060" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_131" value="31. sessionStorage.removeItem('token')" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_131_s" target="msg_131_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_132_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="320" y="1085" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_132_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="60" y="1085" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_132" value="32. Redirige a pantalla /login" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#a9bed2;strokeWidth=1.5;dashed=1;fontColor=#a9bed2;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_132_s" target="msg_132_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_133_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="60" y="1130" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_133_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="880" y="1130" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_133" value="33. Intento de reuso con token robado: GET /api/panel/cotizaciones" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_133_s" target="msg_133_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_134_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="880" y="1155" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_134_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1440" y="1155" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_134" value="34. isTokenRevoked(token)?" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5980a6;strokeWidth=1.5;fontColor=#e8eaeb;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_134_s" target="msg_134_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_135_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="1440" y="1180" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_135_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="880" y="1180" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_135" value="35. Retorna TRUE (TOKEN EN LISTA NEGRA)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#ef4444;strokeWidth=1.5;fontColor=#fca5a5;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_135_s" target="msg_135_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_136_s" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="880" y="1210" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_136_t" value="" style="strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="60" y="1210" width="1" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="msg_136" value="36. HTTP 401 Unauthorized { error: 'Token revocado por Logout' }" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#ef4444;strokeWidth=1.5;fontColor=#fca5a5;fontSize=10;fontFamily=Barlow, Arial, sans-serif;" parent="1" source="msg_136_s" target="msg_136_t" edge="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
