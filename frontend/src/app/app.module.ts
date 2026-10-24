@@ -16,6 +16,7 @@ import { MantenimientoComponent } from './components/mantenimiento/mantenimiento
 import { UbicacionComponent } from './components/ubicacion/ubicacion.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { CotizadorComponent } from './components/cotizador/cotizador.component';
 
 // Interceptores
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
@@ -30,7 +31,8 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
     MantenimientoComponent,
     UbicacionComponent,
     FooterComponent,
-    ModalComponent
+    ModalComponent,
+    CotizadorComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,10 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.validation.constraints.DecimalMin;
@@ -15,12 +18,14 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 
 /**
- * Entidad JPA canónica que representa un producto o equipo de refrigeración.
+ * Entidad JPA del catálogo del cotizador: equipos (categoria = EQUIPO) y servicios (categoria = SERVICIO).
  * Alineada a la lista blanca de anotaciones de AGENTS.md (Sección 2.3 y RF-SEM04-03).
  */
 @Entity
@@ -61,6 +66,21 @@ public class Producto {
     @Column(nullable = false)
     @Builder.Default
     private Boolean activo = true;
+
+    /** Capacidad del equipo en BTU/h (12000, 18000, 24000). En servicios, la capacidad a la que aplica. */
+    @Column(name = "capacidad_btu")
+    private Integer capacidadBtu;
+
+    /** Solo equipos: área máxima recomendada en m² (RF02). */
+    @Column(name = "area_max_m2")
+    private Integer areaMaxM2;
+
+    /** Solo servicios: instalación, mantenimiento o reparación. */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tipo_servicio_id")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private TipoServicio tipoServicio;
 
     /**
      * Campo calculado transitorio conforme a la regla técnica SPEC-SEM04-C.

@@ -4,7 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 import pe.upn.sist1402a.entity.Producto;
 import pe.upn.sist1402a.repository.ProductoRepository;
 
@@ -17,12 +16,12 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * Prueba de integración: verifica la conexión real con SQL Server (perfil "sqlserver").
- * Requiere que SQL Server esté encendido, que se hayan ejecutado los scripts de
- * backend/database y que las variables DB_USUARIO / DB_CLAVE estén configuradas.
+ * Prueba de integración: verifica la conexión con la base de datos del perfil activo.
+ * - Perfil dev (por defecto): H2 en memoria, no requiere instalar nada.
+ * - Perfil sqlserver: requiere SQL Server con el script database/EJECUTAR_BD_GLOBALFRIO.sql
+ *   ejecutado y las variables DB_USUARIO / DB_CLAVE configuradas.
  */
 @SpringBootTest
-@ActiveProfiles("sqlserver")
 class ConexionBdTest {
 
     @Autowired
@@ -32,16 +31,14 @@ class ConexionBdTest {
     private ProductoRepository productoRepository;
 
     @Test
-    @DisplayName("La aplicación abre una conexión válida con SQL Server y la base globalfrio_db")
-    void conexionConSqlServer() throws Exception {
+    @DisplayName("La aplicación abre una conexión válida con la base de datos")
+    void conexionConBaseDeDatos() throws Exception {
         try (Connection conexion = dataSource.getConnection()) {
             DatabaseMetaData meta = conexion.getMetaData();
             System.out.println("Conectado a: " + meta.getDatabaseProductName() + " " + meta.getDatabaseProductVersion());
             System.out.println("Base de datos: " + conexion.getCatalog());
 
             assertTrue(conexion.isValid(2), "La conexión no es válida");
-            assertTrue(meta.getDatabaseProductName().contains("SQL Server"), "No es SQL Server");
-            assertTrue("globalfrio_db".equalsIgnoreCase(conexion.getCatalog()), "No es la base globalfrio_db");
         }
     }
 
@@ -54,6 +51,6 @@ class ConexionBdTest {
         List<Producto> equipos = productoRepository.findByCategoriaAndActivo("EQUIPO", true);
         equipos.forEach(p -> System.out.println(" - " + p.getNombre() + " | S/ " + p.getPrecio()));
 
-        assertFalse(equipos.isEmpty(), "Ejecuta el script 03_datos_iniciales.sql antes de esta prueba");
+        assertFalse(equipos.isEmpty(), "No hay equipos en la tabla productos: revisa los datos iniciales");
     }
 }

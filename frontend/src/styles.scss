@@ -338,3 +338,92 @@ figure {
     gap: 40px;
   }
 }
+
+/* --- 7. Documento imprimible de la cotización (RF05) ----------------------- */
+.gf-cot-print {
+  display: none;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .gf-cot-print,
+  .gf-cot-print * {
+    visibility: visible;
+  }
+
+  .gf-cot-print {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10mm;
+    background: #ffffff;
+    color: #111111;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+
+    h1,
+    h2 {
+      color: #1f5fa9;
+      text-transform: none;
+      margin: 0 0 4px;
+    }
+
+    h2 {
+      margin-top: 18px;
+    }
+
+    p {
+      margin: 4px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+    }
+
+    th,
+    td {
+      border: 1px solid #999999;
+      padding: 6px 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #e8eef6;
+    }
+
+    td:nth-child(n + 2) {
+      text-align: right;
+    }
+  }
+
+  .gf-cot-print__cabecera {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 2px solid #1f5fa9;
+    padding-bottom: 10px;
+  }
+
+  .gf-cot-print__totales {
+    width: 50% !important;
+    margin-left: auto;
+
+    td:last-child,
+    th:last-child {
+      text-align: right;
+    }
+  }
+
+  .gf-cot-print__nota {
+    margin-top: 18px !important;
+    font-size: 10pt;
+    color: #444444;
+  }
+}

@@ -26,6 +26,26 @@ Esta carpeta contiene el **modelo físico** de esa base, que es el último paso 
 
 ---
 
+## Opción rápida: sin instalar nada (H2, por defecto)
+
+El backend trae una base de datos **H2 en memoria** con las mismas 6 tablas y los mismos datos (`src/main/resources/db/h2/`). Se crea sola al iniciar y se borra al detenerlo; **no se conecta a ningún SQL Server**.
+
+```powershell
+cd backend
+.\mvnw.cmd spring-boot:run
+```
+
+- Para ver las tablas, abre http://localhost:8080/h2-console con JDBC URL `jdbc:h2:mem:globalfriodb`, usuario `sa` y contraseña vacía.
+- Para probar la conexión: `.\mvnw.cmd test -Dtest=ConexionBdTest`
+
+## Opción SQL Server
+
+Para usar SQL Server, ejecuta los pasos siguientes y activa el perfil `sqlserver` antes de iniciar el backend:
+
+```powershell
+$env:SPRING_PROFILES_ACTIVE = "sqlserver"
+```
+
 ## Paso 1. Preparar SQL Server (una sola vez)
 
 1. **Autenticación mixta.** Abre SSMS, haz clic derecho en el servidor → *Properties* → *Security* y marca **SQL Server and Windows Authentication mode**. Reinicia el servicio.
@@ -78,12 +98,7 @@ Para levantar el backend conectado a SQL Server:
 
 En los logs debe aparecer `HikariPool-1 - Start completed.` sin errores.
 
-**Para trabajar sin SQL Server** (por ejemplo, en otra computadora), usa el perfil H2:
 
-```powershell
-$env:SPRING_PROFILES_ACTIVE = "dev"
-.\mvnw.cmd spring-boot:run
-```
 
 ---
 

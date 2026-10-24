@@ -39,6 +39,7 @@ public class SecurityConfig {
                                 "/",
                                 "/error",
                                 "/api/saludo/**",
+                                "/api/cotizador/**",
                                 "/api/auth/**",
                                 "/h2-console/**",
                                 "/swagger-ui/**",

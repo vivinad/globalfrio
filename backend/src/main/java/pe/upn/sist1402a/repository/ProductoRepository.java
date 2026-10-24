@@ -39,4 +39,26 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
      */
     @Query("SELECT p FROM Producto p WHERE p.precio BETWEEN :minimo AND :maximo ORDER BY p.precio ASC")
     List<Producto> findByRangoPrecio(@Param("minimo") BigDecimal minimo, @Param("maximo") BigDecimal maximo);
+
+    /**
+     * RF01: equipos activos del catálogo ordenados por capacidad.
+     */
+    @Query("SELECT p FROM Producto p WHERE p.categoria = 'EQUIPO' AND p.activo = true ORDER BY p.capacidadBtu ASC")
+    List<Producto> buscarEquiposActivos();
+
+    /**
+     * RF02: equipos que cubren el área indicada; el primero es el recomendado (menor capacidad suficiente).
+     * @param area Área del ambiente en m² (redondeada hacia arriba)
+     */
+    @Query("SELECT p FROM Producto p WHERE p.categoria = 'EQUIPO' AND p.activo = true AND p.areaMaxM2 >= :area ORDER BY p.capacidadBtu ASC")
+    List<Producto> buscarEquiposParaArea(@Param("area") Integer area);
+
+    /**
+     * Servicios activos de un tipo (INSTALACION, MANTENIMIENTO, REPARACION) que aplican a una capacidad.
+     * Los servicios sin capacidad (por ejemplo, el diagnóstico) aplican a cualquier equipo.
+     * @param codigo Código del tipo de servicio
+     * @param btu    Capacidad del equipo; si es null se devuelven todos los servicios del tipo
+     */
+    @Query("SELECT p FROM Producto p JOIN p.tipoServicio t WHERE p.categoria = 'SERVICIO' AND p.activo = true AND t.codigo = :codigo AND (:btu IS NULL OR p.capacidadBtu IS NULL OR p.capacidadBtu = :btu) ORDER BY p.precio ASC")
+    List<Producto> buscarServicios(@Param("codigo") String codigo, @Param("btu") Integer btu);
 }
