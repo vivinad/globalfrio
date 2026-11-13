@@ -75,3 +75,14 @@ export interface CotizacionResponse {
   costoTraslado: number;
   total: number;
 }
+
+/** Página de resultados del backend (PaginaDto): contenido + metadata para navegar. */
+export interface Pagina<T> {
+  contenido: T[];
+  pagina: number;
+  tamanio: number;
+  totalElementos: number;
+  totalPaginas: number;
+  primera: boolean;
+  ultima: boolean;
+}

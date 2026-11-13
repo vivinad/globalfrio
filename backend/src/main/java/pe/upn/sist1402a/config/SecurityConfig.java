@@ -40,6 +40,7 @@ public class SecurityConfig {
                                 "/error",
                                 "/api/saludo/**",
                                 "/api/cotizador/**",
+                                "/api/contenido/**",
                                 "/api/auth/**",
                                 "/h2-console/**",
                                 "/swagger-ui/**",

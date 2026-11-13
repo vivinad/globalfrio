@@ -1,5 +1,7 @@
 package pe.upn.sist1402a.repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -61,4 +63,13 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
      */
     @Query("SELECT p FROM Producto p JOIN p.tipoServicio t WHERE p.categoria = 'SERVICIO' AND p.activo = true AND t.codigo = :codigo AND (:btu IS NULL OR p.capacidadBtu IS NULL OR p.capacidadBtu = :btu) ORDER BY p.precio ASC")
     List<Producto> buscarServicios(@Param("codigo") String codigo, @Param("btu") Integer btu);
+
+    /**
+     * Catálogo paginado de equipos y servicios activos (JPQL con parámetro nombrado + Pageable).
+     * @param categoria EQUIPO, SERVICIO o null para ambos
+     * @param pageable  número de página y tamaño
+     */
+    @Query(value = "SELECT p FROM Producto p WHERE p.activo = true AND (:categoria IS NULL OR p.categoria = :categoria) ORDER BY p.categoria ASC, p.precio ASC",
+           countQuery = "SELECT COUNT(p) FROM Producto p WHERE p.activo = true AND (:categoria IS NULL OR p.categoria = :categoria)")
+    Page<Producto> listarCatalogo(@Param("categoria") String categoria, Pageable pageable);
 }

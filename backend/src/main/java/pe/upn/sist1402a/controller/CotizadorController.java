@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pe.upn.sist1402a.dto.CatalogoCotizadorDto;
 import pe.upn.sist1402a.dto.CotizacionRequestDto;
 import pe.upn.sist1402a.dto.CotizacionResponseDto;
+import pe.upn.sist1402a.dto.PaginaDto;
 import pe.upn.sist1402a.dto.ProductoCotizadorDto;
 import pe.upn.sist1402a.dto.RecomendacionEquipoDto;
 import pe.upn.sist1402a.service.CotizadorService;
@@ -57,6 +58,16 @@ public class CotizadorController {
             @RequestParam("tipo") String tipo,
             @RequestParam(value = "btu", required = false) Integer btu) {
         return ResponseEntity.ok(cotizadorService.listarServicios(tipo, btu));
+    }
+
+    @Operation(summary = "Catálogo paginado de equipos y servicios (RF01)",
+               description = "Ejemplo: /api/cotizador/productos?categoria=EQUIPO&page=0&size=6. La categoría es opcional.")
+    @GetMapping("/productos")
+    public ResponseEntity<PaginaDto<ProductoCotizadorDto>> productos(
+            @RequestParam(value = "categoria", required = false) String categoria,
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "6") int size) {
+        return ResponseEntity.ok(cotizadorService.listarCatalogo(categoria, page, size));
     }
 
     @Operation(summary = "Calcular precio estimado sin guardar (RF03)")

@@ -1,0 +1,5 @@
+# Copia este archivo como bd-local.properties (en esta misma carpeta backend)
+# y escribe la contraseña que pusiste en database/USUARIO_BACKEND.sql.
+# bd-local.properties NO se sube a GitHub (está en .gitignore).
+spring.datasource.username=globalfrio_backend
+spring.datasource.password=ESCRIBE_AQUI_LA_CLAVE

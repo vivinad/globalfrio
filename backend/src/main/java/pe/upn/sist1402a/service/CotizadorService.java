@@ -3,6 +3,7 @@ package pe.upn.sist1402a.service;
 import pe.upn.sist1402a.dto.CatalogoCotizadorDto;
 import pe.upn.sist1402a.dto.CotizacionRequestDto;
 import pe.upn.sist1402a.dto.CotizacionResponseDto;
+import pe.upn.sist1402a.dto.PaginaDto;
 import pe.upn.sist1402a.dto.ProductoCotizadorDto;
 import pe.upn.sist1402a.dto.RecomendacionEquipoDto;
 
@@ -31,4 +32,7 @@ public interface CotizadorService {
 
     /** Recupera una cotización guardada para mostrarla o descargarla (RF05). */
     CotizacionResponseDto obtenerPorCodigo(String codigo);
+
+    /** Catálogo de equipos y servicios por páginas; categoria puede ser EQUIPO, SERVICIO o null. */
+    PaginaDto<ProductoCotizadorDto> listarCatalogo(String categoria, int pagina, int tamanio);
 }

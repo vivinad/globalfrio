@@ -6,6 +6,7 @@ import {
   CatalogoCotizador,
   CotizacionRequest,
   CotizacionResponse,
+  Pagina,
   ProductoCotizador,
   RecomendacionEquipo
 } from '../models/cotizador.model';
@@ -36,6 +37,14 @@ export class CotizadorService {
       params = params.set('btu', btu);
     }
     return this.http.get<ProductoCotizador[]>(`${this.baseUrl}/servicios`, { params });
+  }
+
+  listarProductos(categoria: string | null, pagina: number, tamanio: number): Observable<Pagina<ProductoCotizador>> {
+    let params = new HttpParams().set('page', pagina).set('size', tamanio);
+    if (categoria) {
+      params = params.set('categoria', categoria);
+    }
+    return this.http.get<Pagina<ProductoCotizador>>(`${this.baseUrl}/productos`, { params });
   }
 
   calcular(request: CotizacionRequest): Observable<CotizacionResponse> {

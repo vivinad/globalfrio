@@ -17,9 +17,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Prueba de integración: verifica la conexión con la base de datos del perfil activo.
- * - Perfil dev (por defecto): H2 en memoria, no requiere instalar nada.
- * - Perfil sqlserver: requiere SQL Server con el script database/EJECUTAR_BD_GLOBALFRIO.sql
- *   ejecutado y las variables DB_USUARIO / DB_CLAVE configuradas.
+ * - Perfil sqlserver (por defecto): requiere SQL Server Express con database/BD_GLOBALFRIO.sql
+ *   y database/USUARIO_BACKEND.sql ejecutados, y backend/bd-local.properties con la contraseña.
+ * - Perfil dev: H2 en memoria, no requiere instalar nada.
  */
 @SpringBootTest
 class ConexionBdTest {

@@ -40,3 +40,6 @@ desktop.ini
 scratch/
 tmp/
 temp/
+
+# Credenciales locales de la base de datos (no se suben)
+backend/bd-local.properties

@@ -1,5 +1,7 @@
 package pe.upn.sist1402a.service.impl;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pe.upn.sist1402a.dto.CatalogoCotizadorDto;
@@ -8,6 +10,7 @@ import pe.upn.sist1402a.dto.CotizacionResponseDto;
 import pe.upn.sist1402a.dto.ItemCotizacionDto;
 import pe.upn.sist1402a.dto.LineaCotizacionDto;
 import pe.upn.sist1402a.dto.OpcionCotizadorDto;
+import pe.upn.sist1402a.dto.PaginaDto;
 import pe.upn.sist1402a.dto.ProductoCotizadorDto;
 import pe.upn.sist1402a.dto.RecomendacionEquipoDto;
 import pe.upn.sist1402a.dto.ZonaDto;
@@ -101,6 +104,22 @@ public class CotizadorServiceImpl implements CotizadorService {
         return productoRepository.buscarServicios(tipoServicio, capacidadBtu).stream()
                 .map(this::aDto)
                 .toList();
+    }
+
+    @Override
+    public PaginaDto<ProductoCotizadorDto> listarCatalogo(String categoria, int pagina, int tamanio) {
+        if (pagina < 0) {
+            throw new BadRequestException("La página no puede ser negativa");
+        }
+        if (tamanio < 1 || tamanio > 20) {
+            throw new BadRequestException("El tamaño de página debe estar entre 1 y 20");
+        }
+        String filtro = (categoria == null || categoria.isBlank()) ? null : categoria.trim().toUpperCase();
+        if (filtro != null && !filtro.equals(EQUIPO) && !filtro.equals(SERVICIO)) {
+            throw new BadRequestException("Categoría no válida: " + categoria);
+        }
+        Page<Producto> page = productoRepository.listarCatalogo(filtro, PageRequest.of(pagina, tamanio));
+        return PaginaDto.desde(page, (Producto p) -> aDto(p));
     }
 
     @Override

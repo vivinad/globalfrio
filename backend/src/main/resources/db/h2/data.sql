@@ -81,3 +81,23 @@ INSERT INTO detalle_cotizacion (cotizacion_id, producto_id, cantidad, precio_uni
 SELECT (SELECT id FROM cotizacion WHERE codigo = 'COT-2026-000001'), id, 1, precio, precio
 FROM productos
 WHERE nombre IN ('Aire acondicionado Gree Inverter 12 000 BTU/h', 'Instalación básica 12 000 BTU');
+
+-- ---------- Contenido de la página de inicio ----------
+INSERT INTO servicio_web (titulo, descripcion, icono, orden) VALUES
+('Instalación',      'Cálculo de capacidad, montaje de evaporadora y condensadora, tuberías, drenaje y puesta en marcha.', 'construction',      1),
+('Mantenimiento',    'Preventivo y correctivo: limpieza de filtros y serpentines, niveles de gas, drenaje y revisión eléctrica.', 'cleaning_services', 2),
+('Reparación',       'Diagnóstico de averías, fallas eléctricas, recarga de refrigerante, fugas y cambio de repuestos.', 'handyman',          3),
+('Venta de equipos', 'Equipos inverter de 12 000, 18 000 y 24 000 BTU/hr, con envío a todo el Perú e instalación disponible.', 'ac_unit',           4);
+
+INSERT INTO trabajo (pie, imagen, texto_alternativo, orden) VALUES
+('Multi-split en oficina — Samsung DVM S2', 'assets/samsung-dvm.jpg',        'Puesta en marcha de un equipo Samsung DVM S2',                 1),
+('Consultorio dental — split de pared',     'assets/consultorio.jpg',        'Equipo instalado en un consultorio dental',                    2),
+('Sala de estar — equipo inverter',         'assets/sala-inverter.jpg',      'Equipo inverter instalado en una sala',                        3),
+('Condensadora sobre soporte — exterior',   'assets/condensadora-gree.jpg',  'Condensadora Gree montada en soporte de pared',                4),
+('Prueba de enfriamiento a 16 °C',          'assets/control-gree.jpg',       'Control remoto marcando 16 grados tras la puesta en marcha', 5);
+
+INSERT INTO item_mantenimiento (titulo, descripcion, orden) VALUES
+('Limpieza profunda',  'Filtros, rejillas, evaporador y condensador, interior y exterior.',              1),
+('Niveles de gas',     'Revisión de refrigerante, detección de fugas y recarga si corresponde.',         2),
+('Drenaje y tuberías', 'Verificación del desagüe para evitar goteras y humedad en la pared.',            3),
+('Pruebas finales',    'Revisión eléctrica y prueba de rendimiento antes de entregar el equipo.',        4);

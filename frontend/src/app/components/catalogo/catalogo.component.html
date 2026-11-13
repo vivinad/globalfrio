@@ -1,0 +1,46 @@
+<section class="gf-section" id="catalogo">
+  <div class="gf-wrap">
+    <div class="gf-section-head">
+      <div>
+        <p class="gf-kicker">Catálogo y precios</p>
+        <h2 class="gf-title">Equipos y servicios disponibles</h2>
+      </div>
+      <p class="gf-lede">
+        Precios en soles con IGV incluido. Los servicios muestran el precio para casa;
+        el cotizador ajusta la mano de obra según el tipo de lugar.
+      </p>
+    </div>
+
+    <div class="gf-catalogo__filtros" role="group" aria-label="Filtrar catálogo">
+      <button type="button" *ngFor="let f of filtros"
+              [class.activo]="categoria === f.valor"
+              [attr.aria-pressed]="categoria === f.valor"
+              (click)="filtrar(f.valor)">{{ f.texto }}</button>
+    </div>
+
+    <p class="gf-catalogo__error" *ngIf="error" role="alert">{{ error }}</p>
+
+    <div class="gf-catalogo__grid" *ngIf="pagina" [class.cargando]="cargando">
+      <article class="card blueprint gf-producto" *ngFor="let p of pagina.contenido">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <span class="gf-producto__tipo">{{ p.categoria === 'EQUIPO' ? 'Equipo' : 'Servicio' }}</span>
+        <h3>{{ p.nombre }}</h3>
+        <p>{{ p.descripcion }}</p>
+        <strong class="gf-producto__precio">S/ {{ p.precio | number: '1.2-2' }}</strong>
+      </article>
+    </div>
+
+    <nav class="gf-paginacion" *ngIf="pagina && pagina.totalPaginas > 1" aria-label="Páginas del catálogo">
+      <button type="button" [disabled]="pagina.primera || cargando" (click)="cargar(pagina.pagina - 1)">‹ Anterior</button>
+      <button type="button" *ngFor="let n of numeros"
+              [class.activo]="n === pagina.pagina"
+              [attr.aria-current]="n === pagina.pagina ? 'page' : null"
+              [disabled]="cargando"
+              (click)="cargar(n)">{{ n + 1 }}</button>
+      <button type="button" [disabled]="pagina.ultima || cargando" (click)="cargar(pagina.pagina + 1)">Siguiente ›</button>
+    </nav>
+    <p class="gf-paginacion__info" *ngIf="pagina">
+      Página {{ pagina.pagina + 1 }} de {{ pagina.totalPaginas }} · {{ pagina.totalElementos }} productos
+    </p>
+  </div>
+</section>
